@@ -1,0 +1,89 @@
+<div *ngIf="usuario"><!-- Aquí verificamos si usuario no es null, es hasta que usuario tenga información o sea true ahí recién muestra -->
+ <div *ngFor="let u of usuario">
+   <p>
+     <b>Genero: </b> {{ u.gender }}
+     <br>
+     <b>Nombre:</b> {{ u.name['title'] }} {{ u.name['first']}} {{ u.name['last'] }}
+   </p>
+ </div>
+</div>
+
+<div>
+  <h2>Operador Map</h2>
+  <!-- solo cuando los datos sean femeninos nos muestra los
+  datos y si no al apretar el boton no nos mostrará nada  -->
+  <button type="button" class="boton" (click)="showFemale()">
+    Femenino
+  </button>
+
+  <div *ngIf="femenino">
+    <p>
+      <b>Genero:</b> {{ usuario2.gender }}
+      <br>
+      <b>Nombre:</b> {{ usuario2.name['title'] }} {{ usuario2.name['first'] }} {{ usuario2.name['last'] }}
+    </p>
+  </div>
+
+</div>
+
+
+<button type="button" class="boton" (click)="showCountry()">
+  Country
+</button>
+<div *ngIf="canada">
+  <h2>Cánada</h2>
+  <p>
+    <b>Country:</b> {{ country.location['country'] }}
+  </p>
+</div>
+
+<div>
+  <button type="button" class="boton" (click)="mostrarElementos()">
+    Mostrar Elementos
+  </button>
+</div>
+
+
+<div>
+  <button type="button" class="boton" (click)="MostrarFoto()">
+    Mostrar Foto
+  </button>
+  
+  <div *ngIf="usuario3">
+    <p>
+      <b>Nombre:</b> {{ usuario3.name['title'] }} {{ usuario3.name['first'] }}
+    </p>
+    <p>
+      <b>Foto:</b>
+      <br>
+      <img [src]="usuario3['picture'].large" alt="persona">
+    </p>
+  </div>
+</div>
+
+
+<!-- sus nombres, apllidos, 3 fotos, correo, usuario y contraseña -->
+<div>
+  <button type="button" class="boton" (click)="showInformation()">
+    Show Information
+  </button>
+
+  <div *ngIf="userData">
+    <p>
+      <b>Foto:</b> <br>
+      <img [src]="userData['picture'].large" alt="large picture">
+      <img [src]="userData['picture'].medium" alt="large picture">
+      <img [src]="userData['picture'].thumbnail" alt="thumbnail picture">
+    </p>
+
+    <p>
+      <b>Nombre:</b> {{ userData.name['first'] }} {{ userData.name['last'] }}
+    </p>
+    <p>
+      <b>Usuario:</b> {{ userData.login['username'] }} <br>
+      <b>Correo:</b>  {{ userData.email }} <br>
+      <b>Contraseña:</b> {{ userData.login['password'] }} <br>
+    </p>
+
+  </div>
+</div>
