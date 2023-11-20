@@ -15,6 +15,14 @@ export class UsuarioService {
     return this.http.get<any>(this.url);
   }
 
+  get datos() {
+    return this.url;
+  }
+
+  getUser(idx: number) {
+    return this.url [idx];
+  }
+
   // obtenemos usuario másculino para que no se muestren, por eso le ponemos != name
   obtenerUsuarioMasculino(): Observable<any> {
     return this.http.get<any>(this.url).
